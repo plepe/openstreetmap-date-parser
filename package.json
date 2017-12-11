@@ -5,5 +5,13 @@
   "main": "src/parser.js",
   "repository": "https://github.com/plepe/openstreetmap-date-parser",
   "author": "Stephan Bösch-Plepelits <skunk@xover.mud.at>",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "mocha": "^4.0.1",
+    "standard": "^10.0.3"
+  },
+  "scripts": {
+    "test": "mocha test/test.js",
+    "lint": "standard src/*js test/*js"
+  }
 }
