@@ -41,6 +41,9 @@ function osmDateParser (value, options) {
     if (s === null || e === null) {
       return null
     }
+    if (s[0] > e[1]) {
+      return null
+    }
     return [ s[0], e[1] ]
   }
 

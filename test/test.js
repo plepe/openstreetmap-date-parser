@@ -65,5 +65,6 @@ describe('osmDateParser', function () {
     assert.deepEqual(null, osmDateParser('1990-2000'))
     assert.deepEqual(null, osmDateParser('1990-2000'))
     assert.deepEqual(null, osmDateParser('C15..16'))
+    assert.deepEqual(null, osmDateParser('2000..1990'))
   })
 })
