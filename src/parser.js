@@ -24,6 +24,8 @@ function parseDate (value) {
   if (m) {
     return [ (parseInt(m[1]) - 1) * 100, 100 ]
   }
+
+  return null
 }
 
 /**
@@ -36,6 +38,9 @@ function osmDateParser (value, options) {
   if (m) {
     let s = osmDateParser(m[1])
     let e = osmDateParser(m[2])
+    if (s === null || e === null) {
+      return null
+    }
     return [ s[0], e[1] ]
   }
 
@@ -80,6 +85,8 @@ function osmDateParser (value, options) {
     [ v, g ] = m
     return [ v, v + g - 1 ]
   }
+
+  return null
 }
 
 module.exports = osmDateParser
