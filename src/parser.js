@@ -10,17 +10,17 @@ function parseDate (value) {
     return [ parseInt(value), 1 ]
   }
 
-  m = value.match(/^(\d*) BC$/)
+  m = value.match(/^(\d*) BC$/i)
   if (m) {
     return [ -parseInt(m[1]) + 1, 1 ]
   }
 
-  m = value.match(/^~?(\d{4})s$/)
+  m = value.match(/^~?(\d{4})s$/i)
   if (m) {
     return [ parseInt(m[1]), 10 ]
   }
 
-  m = value.match(/^~?C(\d{2})$/)
+  m = value.match(/^~?C(\d{2})$/i)
   if (m) {
     return [ (parseInt(m[1]) - 1) * 100, 100 ]
   }
@@ -39,37 +39,37 @@ function osmDateParser (value, options) {
     return [ s[0], e[1] ]
   }
 
-  m = value.match(/^(\d*) BCE?$/)
+  m = value.match(/^(\d*) BCE?$/i)
   if (m) {
     [ v, g ] = parseDate(value)
     return [ v, v ]
   }
 
-  m = value.match(/^before (.*)$/)
+  m = value.match(/^before (.*)$/i)
   if (m) {
     [ v, g ] = parseDate(m[1])
     return [ null, v - 1 ]
   }
 
-  m = value.match(/^after (.*)$/)
+  m = value.match(/^after (.*)$/i)
   if (m) {
     [ v, g ] = parseDate(m[1])
     return [ v + g, null ]
   }
 
-  m = value.match(/^early (.*)$/)
+  m = value.match(/^early (.*)$/i)
   if (m) {
     [ v, g ] = parseDate(m[1])
     return [ v, Math.round(v + g * 0.33) ]
   }
 
-  m = value.match(/^mid (.*)$/)
+  m = value.match(/^mid (.*)$/i)
   if (m) {
     [ v, g ] = parseDate(m[1])
     return [ Math.round(v + g * 0.33), Math.round(v + g * 0.67 - 1) ]
   }
 
-  m = value.match(/^late (.*)$/)
+  m = value.match(/^late (.*)$/i)
   if (m) {
     [ v, g ] = parseDate(m[1])
     return [ Math.round(v + g * 0.67 - 1), v + g - 1 ]

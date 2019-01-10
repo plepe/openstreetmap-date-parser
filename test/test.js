@@ -22,6 +22,7 @@ describe('osmDateParser', function () {
 
   it('centuries', function () {
     assert.deepEqual([ 1900, 1999 ], osmDateParser('C20'))
+    assert.deepEqual([ 1700, 1799 ], osmDateParser('c18'))
   })
 
   it('before/after', function () {
@@ -31,6 +32,7 @@ describe('osmDateParser', function () {
     assert.deepEqual([ 1856, null ], osmDateParser('after 1855'))
     assert.deepEqual([ 1990, null ], osmDateParser('after 1980s'))
     assert.deepEqual([ 1400, null ], osmDateParser('after C14'))
+    assert.deepEqual([ 1600, null ], osmDateParser('after c16'))
   })
 
   it('early/mid/late', function () {
@@ -56,6 +58,7 @@ describe('osmDateParser', function () {
     assert.deepEqual([ 1914, 1918 ], osmDateParser('1914..1918'))
     assert.deepEqual([ 2008, 2008 ], osmDateParser('2008-08-08..2008-08-24'))
     assert.deepEqual([ 1920, 1946 ], osmDateParser('early 1920s..mid 1940s'))
+    assert.deepEqual([ 1500, 1799 ], osmDateParser('c16..c18'))
   })
 
   it('errors', function () {
