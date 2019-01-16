@@ -20,7 +20,7 @@ function parseDate (value) {
     return [ parseInt(m[1]), 10 ]
   }
 
-  m = value.match(/^~?C(\d{2})$/i)
+  m = value.match(/^~?C(\d+)$/i)
   if (m) {
     return [ (parseInt(m[1]) - 1) * 100, 100 ]
   }

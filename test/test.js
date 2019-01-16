@@ -23,6 +23,7 @@ describe('osmDateParser', function () {
   it('centuries', function () {
     assert.deepEqual([ 1900, 1999 ], osmDateParser('C20'))
     assert.deepEqual([ 1700, 1799 ], osmDateParser('c18'))
+    assert.deepEqual([ 0, 99 ], osmDateParser('c1'))
   })
 
   it('before/after', function () {
