@@ -1,6 +1,6 @@
 {
   "name": "openstreetmap-date-parser",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A parser for date values as they are used for start_date and similar tags.",
   "main": "src/parser.js",
   "repository": "https://github.com/plepe/openstreetmap-date-parser",
